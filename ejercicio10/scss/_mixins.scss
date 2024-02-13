@@ -1,0 +1,19 @@
+// Mixins
+@mixin text-and-bg-colors($text-color, $bg-color) {
+    color: $text-color;
+    background-color: $bg-color;
+  }
+  
+  @mixin transition($property, $duration, $timing: linear) {
+    transition: $property $duration $timing;
+  }
+  
+  @mixin animation($name, $duration, $timing: linear) {
+    animation: $name $duration $timing;
+  }
+  @mixin hover-colors($text-color-hover, $bg-color-hover) {
+    &:hover {
+      color: $text-color-hover;
+      background-color: $bg-color-hover;
+    }
+  }

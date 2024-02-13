@@ -1,0 +1,62 @@
+@import '_menu';
+@import 'mixins';
+@import 'VARIABLES';
+
+
+
+
+// Keyframes
+@keyframes iluminar {
+  from {
+    color: $color-text;
+    background-color: $color-background;
+  }
+  to {
+    color: $color-text-hover;
+    background-color: $color-background-hover;
+  }
+}
+
+// Reset default margins
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+// Header styles
+header {
+  padding: 12px 30px;
+  font-size: 1.8em;
+  color: #444;
+  background-color: #eee;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px #aaa;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+// Footer styles
+footer {
+  @include text-and-bg-colors($color-text, $color-background);
+  box-sizing: border-box;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  padding: 5px;
+  text-align: center;
+}
+.category {
+  position: relative; // Para posicionar absolutamente los submenús con respecto a esta categoría
+
+  &:hover .submenu {
+    display: block; // Mostrar el submenú en hover
+    position: absolute;
+    background-color: #888; // Por ejemplo, para hacerlo visible
+    width: 100%; // O la anchura que desees
+  }
+}
+
+.submenu {
+  display: none; // Ocultar el submenú por defecto
+  // Resto de tus estilos para el submenú...
+}

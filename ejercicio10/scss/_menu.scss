@@ -1,0 +1,70 @@
+@import 'VARIABLES';
+@import 'mixins';
+nav {
+    position: absolute;
+    width: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+  
+    ul {
+      display: flex;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+  
+      li {
+        margin: 0;
+  
+        &.category {
+          @include transition(all, 0.3s);
+  
+          a {
+            display: block;
+            margin: 0;
+            padding: 10px 20px;
+            text-decoration: none;
+            @include text-and-bg-colors($color-text, $color-background);
+  
+            &:hover {
+              @include hover-colors($color-text-hover, $color-background-hover);
+            }
+          }
+  
+          &:hover {
+            .submenu {
+              height: 100%;
+            }
+          }
+        }
+  
+        .submenu {
+          display: none; // Asumiendo que el submenu está oculto por defecto.
+          flex-direction: column;
+          @include transition(max-height, 0.5s);
+          max-height: 0;
+          overflow: hidden;
+  
+          &.active {
+            display: flex; // Esta clase se activaría al pasar el ratón por encima.
+            max-height: 500px; // O un valor que se ajuste al contenido del submenu.
+          }
+        }
+      }
+    }
+  
+    > a {
+      width: 100%;
+      height: 32px;
+      display: block;
+      text-decoration: none;
+      padding: 6px 20px;
+      text-align: center;
+      cursor: pointer;
+      @include text-and-bg-colors($color-text, $color-background);
+  
+      &:hover {
+        @include hover-colors($color-text-hover, $color-background-hover);
+        @include animation(iluminar, 0.5s);
+      }
+    }
+  }
+  
